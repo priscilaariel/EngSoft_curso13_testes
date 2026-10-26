@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "API (uvicorn)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:build_default_app", "--factory", "--reload", "--port", "8000"],
+      "env": {
+        "RJ_DB_PATH": "render_jobs.db",
+        "RJ_PROVIDER_URL": "https://provider.example",
+        "RJ_WEBHOOK_SECRET": "dev-secret"
+      },
+      "justMyCode": true
+    },
+    {
+      "name": "Pytest: arquivo atual",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["${file}", "-v"],
+      "justMyCode": false
+    }
+  ]
+}

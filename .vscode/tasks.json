@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Rodar todos os testes",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest"],
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Rodar só os testes do prompt 1",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "tests/p1_contrato", "tests/p1_contrato_v2"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Rodar só os testes do prompt 2",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "tests/p2_codigo"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Rodar teste de mutação",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["experimento/mutantes.py"],
+      "problemMatcher": []
+    }
+  ]
+}

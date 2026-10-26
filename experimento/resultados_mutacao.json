@@ -1,0 +1,419 @@
+{
+  "total": 34,
+  "summary": {
+    "P1 v1": 22,
+    "P1 v2": 30,
+    "P2": 17,
+    "P1 v2 + P2": 34
+  },
+  "mutants": [
+    {
+      "id": "M01",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "Retry-After sem limite de 10 s",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M02",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "backoff não dobra",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M03",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "espera também depois da última tentativa",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M04",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "Idempotency-Key muda nas retentativas",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M05",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "429 não é tentado de novo",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M06",
+      "rule": "R11",
+      "file": "app/provider.py",
+      "desc": "400 é tentado de novo",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M07",
+      "rule": "R12",
+      "file": "app/provider.py",
+      "desc": "timeout vira provider_unavailable",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M08",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "uma tentativa a menos",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M09",
+      "rule": "R13",
+      "file": "app/provider.py",
+      "desc": "id vazio é aceito",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M10",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "Retry-After não numérico derruba a requisição",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M11",
+      "rule": "R13",
+      "file": "app/provider.py",
+      "desc": "corpo JSON que não é objeto causa erro 500",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M12",
+      "rule": "R13",
+      "file": "app/service.py",
+      "desc": "id repetido do Provedor deixa job preso e crédito debitado",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": false,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M13",
+      "rule": "R22",
+      "file": "app/repository.py",
+      "desc": "webhook failed não devolve o crédito",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M14",
+      "rule": "R23",
+      "file": "app/repository.py",
+      "desc": "webhook repetido é reaplicado",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M15",
+      "rule": "R07",
+      "file": "app/repository.py",
+      "desc": "saldo igual ao custo é recusado",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M16",
+      "rule": "R17",
+      "file": "app/repository.py",
+      "desc": "listagem do mais antigo para o mais novo",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M17",
+      "rule": "R17",
+      "file": "app/repository.py",
+      "desc": "total ignora os filtros",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M18",
+      "rule": "R14",
+      "file": "app/repository.py",
+      "desc": "reembolso parcial na falha de criação",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M19",
+      "rule": "R14",
+      "file": "app/repository.py",
+      "desc": "fail_and_refund repete reembolso em job já finalizado",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": false,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M20",
+      "rule": "R18",
+      "file": "app/main.py",
+      "desc": "assinatura ausente é aceita",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M21",
+      "rule": "R19",
+      "file": "app/schemas.py",
+      "desc": "image_url http é aceita",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M22",
+      "rule": "R05",
+      "file": "app/schemas.py",
+      "desc": "prompt não é aparado",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M23",
+      "rule": "R05",
+      "file": "app/schemas.py",
+      "desc": "campos extras no job são aceitos",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M24",
+      "rule": "R19",
+      "file": "app/schemas.py",
+      "desc": "limite de 200 caracteres de error vira 2000",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M25",
+      "rule": "R02",
+      "file": "app/schemas.py",
+      "desc": "credits aceita texto numérico como \"10\"",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M26",
+      "rule": "R17",
+      "file": "app/main.py",
+      "desc": "limit máximo vira 1000",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M27",
+      "rule": "R04",
+      "file": "app/service.py",
+      "desc": "custo de 2048 errado",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M28",
+      "rule": "R13",
+      "file": "app/provider.py",
+      "desc": "200 do Provedor é aceito como sucesso",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M29",
+      "rule": "R19",
+      "file": "app/main.py",
+      "desc": "payload inválido devolve 400",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M30",
+      "rule": "R04",
+      "file": "app/schemas.py",
+      "desc": "resolução padrão errada",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M31",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "limite do Retry-After vira 60 s",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M32",
+      "rule": "R22",
+      "file": "app/repository.py",
+      "desc": "failure_reason padrão errado",
+      "killed": {
+        "P1 v1": true,
+        "P1 v2": true,
+        "P2": false,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M33",
+      "rule": "R10",
+      "file": "app/provider.py",
+      "desc": "Retry-After com dígito não ASCII derruba a requisição (defeito real achado pelo P2)",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": false,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    },
+    {
+      "id": "M34",
+      "rule": "R25",
+      "file": "app/service.py",
+      "desc": "falha do banco depois do aceite do Provedor deixa crédito preso (defeito real achado pelo P2)",
+      "killed": {
+        "P1 v1": false,
+        "P1 v2": false,
+        "P2": true,
+        "P1 v2 + P2": true
+      }
+    }
+  ]
+}
